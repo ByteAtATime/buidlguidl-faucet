@@ -33,7 +33,17 @@ export const POST: RequestHandler = async ({ request }) => {
 
   const contract = new Contract(CONTRACT_ADDRESS, deployedContracts[11155111].Faucet.abi, signer);
 
-  const tx = await contract.withdraw(proof, destination);
+  try {
+    const tx = await contract.withdraw(proof, destination);
 
-  return new Response(JSON.stringify({ tx: tx.hash }), { status: 200 });
+    return new Response(JSON.stringify({ tx: tx.hash }), { status: 200 });
+  } catch (e) {
+    if (e instanceof Error) {
+      if ((e as any)?.info?.error?.message) return new Response((e as any).info.error.message, { status: 500 });
+
+      return new Response(e.message, { status: 500 });
+    } else {
+      return new Response("Unknown error", { status: 500 });
+    }
+  }
 };

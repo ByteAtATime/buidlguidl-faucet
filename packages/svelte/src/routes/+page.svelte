@@ -66,7 +66,7 @@
     });
 
     if (!res.ok) {
-      notification.error("Failed to fund wallet");
+      notification.error("Failed to fund wallet with the following error:\n" + (await res.text()));
       return;
     }
 
