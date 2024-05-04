@@ -4,13 +4,15 @@
   import { createScaffoldReadContract } from "$lib/runes/scaffoldReadContract.svelte";
   import { getBlockExplorerTxLink } from "$lib/utils/scaffold-eth/networks";
   import { notification } from "$lib/utils/scaffold-eth/notification";
-  import { createAccount } from "@byteatatime/wagmi-svelte";
+  import { createAccount, createConnect } from "@byteatatime/wagmi-svelte";
+  import { injected } from "@byteatatime/wagmi-svelte/connectors";
   import { isAddress } from "viem";
 
-  const { address: destAddr } = $derived.by(createAccount());
+  const { address: destAddr, isConnected } = $derived.by(createAccount());
+  const { connect } = $derived.by(createConnect());
 
   let addressProof = $state<{ isLoading: boolean; proof: string[] | null }>({
-    isLoading: true,
+    isLoading: false,
     proof: null,
   });
 
@@ -96,18 +98,24 @@
         </p>
       {/if}
 
-      <button
-        class="btn btn-primary btn-block mt-8"
-        disabled={!destAddr || addressProof.isLoading || buidlGuidlOracle.isLoading}
-        onclick={fundWallet}
-      >
-        {#if addressProof.isLoading}
-          <div class="loading" />
-          Obtaining proof
-        {:else}
-          Fund my wallet!
-        {/if}
-      </button>
+      {#if !isConnected}
+        <button class="btn btn-primary btn-block mt-8" onclick={() => connect({ connector: injected() })}>
+          Connect Wallet
+        </button>
+      {:else}
+        <button
+          class="btn btn-primary btn-block mt-8"
+          disabled={!destAddr || addressProof.isLoading || buidlGuidlOracle.isLoading}
+          onclick={fundWallet}
+        >
+          {#if addressProof.isLoading}
+            <div class="loading" />
+            Obtaining proof
+          {:else}
+            Fund my wallet!
+          {/if}
+        </button>
+      {/if}
     </div>
   </div>
 </div>

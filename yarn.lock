@@ -2522,6 +2522,7 @@ __metadata:
     "@castlenine/svelte-qrcode": ^1.1.0
     "@leodog896/svelte-french-toast": ^1.3.1
     "@sveltejs/adapter-auto": ^3.0.0
+    "@sveltejs/adapter-vercel": ^5.3.0
     "@sveltejs/kit": ^2.0.0
     "@sveltejs/vite-plugin-svelte": ^3.0.0
     "@tanstack/svelte-query": ^5.28.9
@@ -2865,6 +2866,18 @@ __metadata:
   peerDependencies:
     "@sveltejs/kit": ^2.0.0
   checksum: 7a8b0da4ee59fc62372668c3ec77a95efae2e4e6b42f83b69a3c1019b44a7731366e1821d5c8b7df1a2e6617a4c704f079488fce106d5c80c79944a142be1016
+  languageName: node
+  linkType: hard
+
+"@sveltejs/adapter-vercel@npm:^5.3.0":
+  version: 5.3.0
+  resolution: "@sveltejs/adapter-vercel@npm:5.3.0"
+  dependencies:
+    "@vercel/nft": ^0.26.1
+    esbuild: ^0.20.2
+  peerDependencies:
+    "@sveltejs/kit": ^2.4.0
+  checksum: 55423bcc0f1f0393c5a12d0288e0dcd12504eb534f154cce76555b394db336486a82f760cd61a29ec84b1acef4d808bdad92f4ba4ce24248e7cf07b5b14486ea
   languageName: node
   linkType: hard
 
@@ -3721,7 +3734,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vercel/nft@npm:0.26.4":
+"@vercel/nft@npm:0.26.4, @vercel/nft@npm:^0.26.1":
   version: 0.26.4
   resolution: "@vercel/nft@npm:0.26.4"
   dependencies:
@@ -7176,7 +7189,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.20.1":
+"esbuild@npm:^0.20.1, esbuild@npm:^0.20.2":
   version: 0.20.2
   resolution: "esbuild@npm:0.20.2"
   dependencies:
