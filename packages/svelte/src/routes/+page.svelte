@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Faq from "$lib/components/Faq.svelte";
   import { Address } from "$lib/components/scaffold-eth";
   import TxnNotification from "$lib/runes/TxnNotification.svelte";
   import { createScaffoldReadContract } from "$lib/runes/scaffoldReadContract.svelte";
@@ -79,7 +80,7 @@
   };
 </script>
 
-<div class="flex items-center justify-center px-4 py-8">
+<div class="flex flex-col items-center justify-center px-4 py-8">
   <div class="flex max-w-screen-sm flex-col items-center gap-y-2 [&>*]:text-center">
     <h1 class="my-0 text-4xl font-bold">BuidlGuidl Sepolia Faucet</h1>
 
@@ -118,4 +119,6 @@
       {/if}
     </div>
   </div>
+
+  <Faq />
 </div>
