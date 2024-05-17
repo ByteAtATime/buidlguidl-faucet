@@ -13,7 +13,7 @@ interface BuidlGuidlOracle {
 contract BuidlGuidlFaucet is Ownable {
 	BuidlGuidlOracle public constant BUIDLGUIDL_ORACLE =
 		BuidlGuidlOracle(0xEC3aEf6c2b8B394eEd0E9D92286E716C6CCE5B81);
-	uint256 public claimAmount = 0.1 ether;
+	uint256 public claimAmount = 1 ether;
 	uint256 public claimPeriod = 1 days;
 
 	mapping(address => uint256) public nextClaimTime;
@@ -41,5 +41,18 @@ contract BuidlGuidlFaucet is Ownable {
 
   receive() external payable {
     emit Deposit(msg.sender, msg.value);
+  }
+
+  function setClaimAmount(uint256 _claimAmount) external onlyOwner {
+    claimAmount = _claimAmount;
+  }
+
+  function setClaimPeriod(uint256 _claimPeriod) external onlyOwner {
+    claimPeriod = _claimPeriod;
+  }
+
+  // in case we migrate to a new contract, etc.
+  function withdrawAll() external onlyOwner {
+    payable(owner()).transfer(address(this).balance);
   }
 }

@@ -11,11 +11,6 @@
         "Actually, you don't! You don't submit any transactions; I'm actually the one eating the gas fees for you. To make this completely gasless, when you request ETH, it's <i>my</i> address that sends the transaction to the faucet contract, which then sends the ETH to your address.",
     },
     {
-      question: "Why only 0.1 ETH?",
-      answer:
-        "Sepolia is a lot like the Ethereum mainnet; just like you don't need 100 ETH to send transactions on mainnet, 0.1 ETH per day is more than enough for testing on Sepolia.",
-    },
-    {
       question: "How can I become a member of the BuidlGuidl?",
       answer: `If you're not yet part of the amazing community that is the BuidlGuidl, you should definitely check it out! You need to complete the first three challenges in <a href="https://speedrunethereum.com" class="link">SpeedRunEthereum</a> to become a member. The BuidlGuidl website itself is at <a href="https://buidlguidl.com" class="link">buidlguidl.com</a>.`,
     },
