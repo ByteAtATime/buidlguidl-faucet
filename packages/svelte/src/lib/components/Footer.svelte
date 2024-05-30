@@ -38,7 +38,7 @@
     <ul class="menu menu-horizontal w-full">
       <div class="flex w-full items-center justify-center gap-2 text-sm">
         <div class="text-center">
-          <a href="https://github.com/ByteAtATime/bg-faucet" target="_blank" rel="noreferrer" class="link"> Fork me </a>
+          <a href="https://github.com/ByteAtATime/buidlguidl-faucet" target="_blank" rel="noreferrer" class="link"> Fork me </a>
         </div>
         <span>·</span>
         <div class="flex items-center justify-center gap-2">
