@@ -90,7 +90,7 @@
     </p>
 
     <div class="container mt-6 flex flex-col items-center rounded-3xl bg-base-100 p-8">
-      <p class="mb-1">Send 0.1 SepoliaETH to:</p>
+      <p class="mb-1">Send 1 SepoliaETH to:</p>
       <Address address={destAddr} />
 
       {#if !addressProof.isLoading && !addressProof.proof}
